@@ -1,0 +1,28 @@
+###
+GET http://localhost:3003/api/blogs/
+
+###
+GET http://localhost:3003/api/blogs/2
+
+
+###
+POST http://localhost:3003/api/blogs/
+content-type: application/json
+
+{
+    "author": "author from rest",
+    "url": "url.com",
+    "title": "title from rest",
+    "likes": 7
+}
+
+###
+DELETE  http://localhost:3003/api/blogs/6
+content-type: application/json
+
+{
+    "author": "author from rest",
+    "url": "url.com",
+    "title": "title from rest",
+    "likes": 7
+}
