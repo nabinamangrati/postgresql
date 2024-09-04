@@ -35,4 +35,15 @@ app.delete("/:id", blogFinder, async (req, res) => {
     res.status(404).send("Blog not found");
   }
 });
+app.put("/:id", blogFinder, async (req, res) => {
+  // const note = await Note.findByPk(req.params.id);
+  if (req.blog) {
+    req.blog.likes = req.body.likes;
+    await req.blog.save();
+    res.json(req.blog);
+  } else {
+    res.status(404).end();
+  }
+});
+
 module.exports = app;

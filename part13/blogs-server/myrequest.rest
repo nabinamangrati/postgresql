@@ -26,3 +26,12 @@ content-type: application/json
     "title": "title from rest",
     "likes": 7
 }
+
+###
+PUT http://localhost:3003/api/blogs/7
+content-type: application/json
+
+{
+   
+    "likes": 3
+}
