@@ -26,7 +26,6 @@ app.get("/", async (req, res) => {
 
 app.post("/", async (req, res, next) => {
   try {
-    console.log(req.body);
     const blog = await Blog.create(req.body);
     res.status(201).json(blog);
   } catch (err) {

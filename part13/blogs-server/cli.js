@@ -2,10 +2,15 @@ const express = require("express");
 require("express-async-errors");
 const app = express();
 const blogRouter = require("./controllers/blogs");
+const loginRouter = require("./controllers/login");
+const usersRouter = require("./controllers/users");
 const { PORT } = require("./util/config");
 
 app.use(express.json());
 app.use("/api/blogs", blogRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/login", loginRouter);
+
 const { connectToDatabase } = require("./util/db");
 
 app.use((err, req, res, next) => {

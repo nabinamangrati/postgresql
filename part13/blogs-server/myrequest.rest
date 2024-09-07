@@ -35,3 +35,27 @@ content-type: application/json
    
     "likes": 3
 }
+###
+GET  http://localhost:3003/api/users/
+
+
+
+###
+POST http://localhost:3003/api/users/
+content-type: application/json
+
+{
+    "username": "nab",
+    "name": "nabina"
+}
+
+###
+PUT  http://localhost:3003/api/users/nab
+content-type: application/json
+
+{
+    "username": "newUsername"
+    
+}
+
+
