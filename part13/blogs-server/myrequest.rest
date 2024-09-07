@@ -2,7 +2,7 @@
 GET http://localhost:3003/api/blogs/
 
 ###
-GET http://localhost:3003/api/blogs/2
+GET http://localhost:3003/api/blogs/10
 
 
 ###
@@ -13,7 +13,7 @@ content-type: application/json
     "author": "author from rest",
     "url": "url.com",
     "title": "title from rest",
-    "likes": 7
+    "likes": 1000
 }
 
 ###
