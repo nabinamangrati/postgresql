@@ -60,11 +60,17 @@ app.get("/:id", blogFinder, async (req, res, next) => {
     next(err);
   }
 });
-app.delete("/:id", blogFinder, async (req, res) => {
+
+app.delete("/:id", tokenExtractor, blogFinder, async (req, res, next) => {
   try {
-    console.log(req.blog);
-    req.blog.destroy();
-    res.status(200).send("blog deleted successfully!");
+    if (req.blog.userId !== req.decodedToken.id) {
+      return res
+        .status(403)
+        .json({ error: "You do not have permission to delete this blog" });
+    }
+
+    await req.blog.destroy();
+    res.status(200).send("Blog deleted successfully!");
   } catch (err) {
     next(err);
   }
