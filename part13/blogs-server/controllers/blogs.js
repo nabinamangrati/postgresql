@@ -35,6 +35,7 @@ const tokenExtractor = (req, res, next) => {
 app.get("/", async (req, res) => {
   try {
     const blogs = await Blog.findAll({
+      attributes: { exclude: ["userId"] },
       include: {
         model: User,
         attributes: ["username", "name"], // Include the necessary user details
