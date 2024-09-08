@@ -8,12 +8,12 @@ GET http://localhost:3003/api/blogs/10
 ###
 POST http://localhost:3003/api/blogs/
 content-type: application/json
-authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld1VzZXJuYW1lQGdtYWlsLmNvbSIsImlkIjozLCJpYXQiOjE3MjU3OTczODB9.o54otllpzK5Sx9hpbWEOmMi0SkaXIxQkGZeA9BFZD4k
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld1VzZXJuYW1lQGdtYWlsLmNvbSIsImlkIjozLCJpYXQiOjE3MjU3OTg0MDJ9.KThZTWwwSlVot6undY6kbbIPwbSG413FYUrCHiDoWAU
 
 {
-    "author": "example 2 fro deleting",
+    "author": "author example",
     "url": "url.com",
-    "title": "title 2",
+    "title": "title example for newUsername@gmail.com made blog",
     "likes": 37643
 }
 

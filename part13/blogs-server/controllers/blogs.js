@@ -1,5 +1,5 @@
 const app = require("express").Router();
-const { Blog } = require("../models/index");
+const { Blog, User } = require("../models/index");
 const jwt = require("jsonwebtoken");
 
 const { SECRET } = require("../util/config");
@@ -34,7 +34,12 @@ const tokenExtractor = (req, res, next) => {
 
 app.get("/", async (req, res) => {
   try {
-    const blogs = await Blog.findAll();
+    const blogs = await Blog.findAll({
+      include: {
+        model: User,
+        attributes: ["username", "name"], // Include the necessary user details
+      },
+    });
     res.json(blogs);
   } catch (err) {
     next(err);

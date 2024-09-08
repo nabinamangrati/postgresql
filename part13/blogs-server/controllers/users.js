@@ -1,9 +1,14 @@
 const router = require("express").Router();
 
-const { User } = require("../models");
+const { User, Blog } = require("../models");
 
 router.get("/", async (req, res) => {
-  const users = await User.findAll();
+  const users = await User.findAll({
+    include: {
+      model: Blog,
+      attributes: ["id", "author", "url", "title", "likes"], // Include the necessary blog details
+    },
+  });
   res.json(users);
 });
 
@@ -34,11 +39,9 @@ router.put("/:username", async (req, res, next) => {
       await user.save();
       res.json(user);
     } else {
-      res
-        .status(404)
-        .json({
-          error: `User with username '${req.params.username}' not found`,
-        });
+      res.status(404).json({
+        error: `User with username '${req.params.username}' not found`,
+      });
     }
   } catch (error) {
     next(error);
