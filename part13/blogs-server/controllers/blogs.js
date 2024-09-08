@@ -44,7 +44,7 @@ app.get("/", async (req, res) => {
 app.post("/", tokenExtractor, async (req, res, next) => {
   try {
     req.body.userId = req.decodedToken.id;
-    console.log("from the blogs blogs controller", req.body.userId);
+    // console.log("from the blogs blogs controller", req.body.userId);
     const blog = await Blog.create(req.body);
     res.status(201).json(blog);
   } catch (err) {
@@ -54,7 +54,7 @@ app.post("/", tokenExtractor, async (req, res, next) => {
 
 app.get("/:id", blogFinder, async (req, res, next) => {
   try {
-    console.log(JSON.stringify(req.blog, null, 2));
+    // console.log(JSON.stringify(req.blog, null, 2));
     res.status(200).json(req.blog);
   } catch (err) {
     next(err);

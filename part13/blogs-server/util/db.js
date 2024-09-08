@@ -8,6 +8,7 @@ const sequelize = new Sequelize(DB_CONNECTION, {
       rejectUnauthorized: false,
     },
   },
+  logging: false,
 });
 const connectToDatabase = async () => {
   try {

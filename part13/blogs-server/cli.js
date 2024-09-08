@@ -14,10 +14,11 @@ app.use("/api/login", loginRouter);
 const { connectToDatabase } = require("./util/db");
 
 app.use((err, req, res, next) => {
-  console.error(err.message);
-
   if (err.name === "SequelizeValidationError") {
-    return res.status(400).json({ error: err.message });
+    const messages = err.errors.map(
+      (e) => `Validation ${e.validatorKey} on ${e.path} failed`
+    );
+    return res.status(400).json({ error: messages });
   }
   if (err.status === 404) {
     return res.status(404).json({ error: err.message || "Not Found" });

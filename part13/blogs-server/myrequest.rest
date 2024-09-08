@@ -46,16 +46,16 @@ POST http://localhost:3003/api/users/
 content-type: application/json
 
 {
-    "username": "nab",
+    "username": "nabina@gmail.com",
     "name": "nabina"
 }
 
 ###
-PUT  http://localhost:3003/api/users/nab
+PUT  http://localhost:3003/api/users/nabina@gmail.com
 content-type: application/json
 
 {
-    "username": "newUsername"
+    "username": "newName@gmail.com"
     
 }
 ###
