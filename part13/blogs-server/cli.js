@@ -1,4 +1,7 @@
 const express = require("express");
+const { Op, fn, col } = require("sequelize");
+const { Blog } = require("./models");
+
 require("express-async-errors");
 const app = express();
 const blogRouter = require("./controllers/blogs");
@@ -12,6 +15,25 @@ app.use("/api/users", usersRouter);
 app.use("/api/login", loginRouter);
 
 const { connectToDatabase } = require("./util/db");
+
+app.get("/api/authors", async (req, res, next) => {
+  try {
+    const authorsData = await Blog.findAll({
+      attributes: [
+        "author",
+        [fn("COUNT", col("id")), "articles"],
+        [fn("SUM", col("likes")), "likes"],
+      ],
+      group: ["author"],
+      raw: true,
+      order: [["likes", "DESC"]],
+    });
+
+    res.json(authorsData);
+  } catch (err) {
+    next(err);
+  }
+});
 
 app.use((err, req, res, next) => {
   if (err.name === "SequelizeValidationError") {
