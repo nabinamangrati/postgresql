@@ -38,7 +38,10 @@ app.get("/", async (req, res) => {
     const where = {};
 
     if (req.query.search) {
-      where.title = { [Op.iLike]: `%${req.query.search}%` };
+      where[Op.or] = [
+        { title: { [Op.iLike]: `%${req.query.search}%` } }, // should have used { title: { [Op.substring]: req.query.search} }
+        { author: { [Op.iLike]: `%${req.query.search}%` } }, //==>it gives the result but my making ilike when  searched in capital
+      ]; //or small letter it will give u results which is case insensative
     }
 
     const blogs = await Blog.findAll({
