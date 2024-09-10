@@ -1,6 +1,7 @@
 const app = require("express").Router();
 const { Blog, User } = require("../models/index");
 const jwt = require("jsonwebtoken");
+const { Op } = require("sequelize");
 
 const { SECRET } = require("../util/config");
 
@@ -34,12 +35,22 @@ const tokenExtractor = (req, res, next) => {
 
 app.get("/", async (req, res) => {
   try {
+    const where = {};
+
+    if (req.query.search) {
+      where[Op.or] = [
+        { title: { [Op.iLike]: `%${req.query.search}%` } }, // should have used { title: { [Op.substring]: req.query.search} }
+        { author: { [Op.iLike]: `%${req.query.search}%` } }, //==>it gives the result but my making ilike when  searched in capital
+      ]; //or small letter it will give u results which is case insensative
+    }
+
     const blogs = await Blog.findAll({
       attributes: { exclude: ["userId"] },
       include: {
         model: User,
-        attributes: ["username", "name"], // Include the necessary user details
+        attributes: ["username", "name"],
       },
+      where,
     });
     res.json(blogs);
   } catch (err) {
