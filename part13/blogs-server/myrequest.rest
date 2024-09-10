@@ -11,10 +11,10 @@ content-type: application/json
 authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld1VzZXJuYW1lQGdtYWlsLmNvbSIsImlkIjozLCJpYXQiOjE3MjU3OTg0MDJ9.KThZTWwwSlVot6undY6kbbIPwbSG413FYUrCHiDoWAU
 
 {
-    "author": "author example",
+    "author": "post api",
     "url": "url.com",
-    "title": "title example for newUsername@gmail.com made blog",
-    "likes": 37643
+    "title": "title example for filter search for ex 13.13 where title has 'react' keyword",
+    "likes": 111
 }
 
 ###
