@@ -8,13 +8,15 @@ GET http://localhost:3003/api/blogs/10
 ###
 POST http://localhost:3003/api/blogs/
 content-type: application/json
-authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld1VzZXJuYW1lQGdtYWlsLmNvbSIsImlkIjozLCJpYXQiOjE3MjU3OTg0MDJ9.KThZTWwwSlVot6undY6kbbIPwbSG413FYUrCHiDoWAU
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hYmluYUBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzI2MTE5MDc4fQ.RfbjivtxqrVAyyxJ4_jINcXLTUKTSzt3xhgoDVo-teI
 
 {
     "author": "post api",
     "url": "url.com",
-    "title": "title example for filter search for ex 13.13 where title has 'react' keyword",
-    "likes": 111
+    "title": "title example ",
+    "likes": 111,
+    "year":2000
+    
 }
 
 ###
@@ -58,7 +60,7 @@ POST http://localhost:3003/api/login/
 content-type: application/json
 
 {
-    "username": "newUsername@gmail.com",
+    "username": "nabina@gmail.com",
     "password": "secret"
    
 }

@@ -2,6 +2,7 @@ const app = require("express").Router();
 const { Blog, User } = require("../models/index");
 const jwt = require("jsonwebtoken");
 const { Op } = require("sequelize");
+const { validateYear } = require("../util/middleware");
 
 const { SECRET } = require("../util/config");
 
@@ -33,7 +34,7 @@ const tokenExtractor = (req, res, next) => {
   next();
 };
 
-app.get("/", async (req, res) => {
+app.get("/", async (req, res, next) => {
   try {
     const where = {};
 
@@ -59,13 +60,17 @@ app.get("/", async (req, res) => {
   }
 });
 
-app.post("/", tokenExtractor, async (req, res, next) => {
+app.post("/", tokenExtractor, validateYear, async (req, res, next) => {
   try {
     req.body.userId = req.decodedToken.id;
     // console.log("from the blogs blogs controller", req.body.userId);
     const blog = await Blog.create(req.body);
     res.status(201).json(blog);
   } catch (err) {
+    console.error(err);
+    if (err.status === 400) {
+      return res.status(400).json({ error: err.message });
+    }
     next(err);
   }
 });
@@ -93,7 +98,7 @@ app.delete("/:id", tokenExtractor, blogFinder, async (req, res, next) => {
     next(err);
   }
 });
-app.put("/:id", blogFinder, async (req, res) => {
+app.put("/:id", blogFinder, async (req, res, next) => {
   try {
     req.blog.likes = req.body.likes;
     await req.blog.save();
