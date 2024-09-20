@@ -10,17 +10,22 @@ ReadingList.init(
       autoIncrement: true,
       allowNull: false,
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      field: "userid",
+      references: { model: "users", key: "id" },
     },
-    blog_id: {
+    blogId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      field: "blogid",
+      references: { model: "blogs", key: "id" },
     },
     read: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
+
       defaultValue: false, // Unread by default
     },
   },
@@ -28,7 +33,7 @@ ReadingList.init(
     sequelize,
     underscored: true,
     timestamps: false,
-    modelName: "ReadingList",
+    modelName: "readinglist",
   }
 );
 module.exports = ReadingList;

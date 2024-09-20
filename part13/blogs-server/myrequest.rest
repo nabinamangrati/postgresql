@@ -8,14 +8,14 @@ GET http://localhost:3003/api/blogs/10
 ###
 POST http://localhost:3003/api/blogs/
 content-type: application/json
-authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hYmluYUBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzI2MTE5MDc4fQ.RfbjivtxqrVAyyxJ4_jINcXLTUKTSzt3xhgoDVo-teI
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hYmluYTRAZ21haWwuY29tIiwiaWQiOjQsImlhdCI6MTcyNjgzODk2OX0.L5_L0xAtY1iXb4jfHR8grkfpk46P6lBxoItersfeB6I
 
 {
-    "author": "post api",
+    "author": "author 7",
     "url": "url.com",
     "title": "title example ",
-    "likes": 111,
-    "year":2000
+    "likes": 200,
+    "year":2011
     
 }
 
@@ -43,8 +43,8 @@ POST http://localhost:3003/api/users/
 content-type: application/json
 
 {
-    "username": "nabina@gmail.com",
-    "name": "nabina"
+    "username": "nabina6@gmail.com",
+    "name": "nabina6"
 }
 
 ###
@@ -60,7 +60,7 @@ POST http://localhost:3003/api/login/
 content-type: application/json
 
 {
-    "username": "nabina@gmail.com",
+    "username": "nabina4@gmail.com",
     "password": "secret"
    
 }
@@ -71,8 +71,8 @@ content-type: application/json
 
 
   {
-  "userId": 6,
-  "blogId": 4
+  "userId": 3,
+  "blogId": 5
 }
 
 
