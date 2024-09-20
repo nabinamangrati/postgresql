@@ -42,6 +42,12 @@ router.get("/:id", async (req, res) => {
           author: reading.blog.author,
           likes: reading.blog.likes,
           year: reading.blog.year,
+          readingLists: [
+            {
+              read: reading.read,
+              id: reading.id, // ID of the join table row
+            },
+          ],
         })),
       };
       res.json(response);
