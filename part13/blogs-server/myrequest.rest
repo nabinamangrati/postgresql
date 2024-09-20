@@ -8,14 +8,14 @@ GET http://localhost:3003/api/blogs/10
 ###
 POST http://localhost:3003/api/blogs/
 content-type: application/json
-authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hYmluYTRAZ21haWwuY29tIiwiaWQiOjQsImlhdCI6MTcyNjgzODk2OX0.L5_L0xAtY1iXb4jfHR8grkfpk46P6lBxoItersfeB6I
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hYmluYTJAZ21haWwuY29tIiwiaWQiOjIsImlhdCI6MTcyNjg0MzkxOH0.xF2Ce6HsRomEf32IhFFZ9VK9gA4gOxDnUuZ5u5840eg
 
 {
-    "author": "author 7",
+    "author": "author 8",
     "url": "url.com",
     "title": "title example ",
-    "likes": 200,
-    "year":2011
+    "likes": 1866,
+    "year":2015
     
 }
 
@@ -60,7 +60,7 @@ POST http://localhost:3003/api/login/
 content-type: application/json
 
 {
-    "username": "nabina4@gmail.com",
+    "username": "nabina2@gmail.com",
     "password": "secret"
    
 }
@@ -73,6 +73,16 @@ content-type: application/json
   {
   "userId": 3,
   "blogId": 5
+}
+
+###
+PUT http://localhost:3003/api/reading-lists/2
+content-type: application/json
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hYmluYTJAZ21haWwuY29tIiwiaWQiOjIsImlhdCI6MTcyNjg0MzQzOH0.vaYyiaGlUigbntqKKFFibwonPiEuD8nU0O_DYfB-N4I
+
+{
+    "read":true
+    
 }
 
 
