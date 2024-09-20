@@ -60,7 +60,7 @@ POST http://localhost:3003/api/login/
 content-type: application/json
 
 {
-    "username": "nabina2@gmail.com",
+    "username": "nabina3@gmail.com",
     "password": "secret"
    
 }
@@ -76,9 +76,9 @@ content-type: application/json
 }
 
 ###
-PUT http://localhost:3003/api/reading-lists/2
+PUT http://localhost:3003/api/reading-lists/3
 content-type: application/json
-authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hYmluYTJAZ21haWwuY29tIiwiaWQiOjIsImlhdCI6MTcyNjg0MzQzOH0.vaYyiaGlUigbntqKKFFibwonPiEuD8nU0O_DYfB-N4I
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hYmluYTNAZ21haWwuY29tIiwiaWQiOjMsImlhdCI6MTcyNjg0NDE3OX0.-9iTRiSZbXy09IUSmU7AUWvWHRmjw8o4GfQtFdF-agU
 
 {
     "read":true
