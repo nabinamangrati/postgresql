@@ -65,3 +65,14 @@ content-type: application/json
    
 }
 
+###
+POST http://localhost:3003/api/reading-lists
+content-type: application/json
+
+
+  {
+  "userId": 6,
+  "blogId": 4
+}
+
+

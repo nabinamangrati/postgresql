@@ -8,4 +8,4 @@ Blog.belongsTo(User);
 User.belongsToMany(Blog, { through: ReadingList });
 Blog.belongsToMany(User, { through: ReadingList });
 
-module.exports = { Blog, User };
+module.exports = { Blog, User, ReadingList };
