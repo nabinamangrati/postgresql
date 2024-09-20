@@ -8,7 +8,7 @@ const sequelize = new Sequelize(DB_CONNECTION, {
       rejectUnauthorized: false,
     },
   },
-  logging: false,
+  logging: true,
 });
 
 const runMigrations = async () => {
