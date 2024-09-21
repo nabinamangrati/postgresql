@@ -17,21 +17,26 @@ router.post("/", async (req, res, next) => {
 });
 
 router.get("/:id", async (req, res) => {
+  const where = {};
+
+  if (req.query.read) {
+    where.read = req.query.read === "true";
+  }
+
   try {
     const user = await User.findByPk(req.params.id, {
       include: {
         model: ReadingList,
+        required: false,
+        where,
         include: {
           model: Blog,
-          attributes: ["id", "url", "title", "author", "likes", "year"], // Add attributes you need
+          attributes: ["id", "url", "title", "author", "likes", "year"],
         },
       },
     });
-    console.log(`User retrieved:`, JSON.stringify(user, null, 2));
 
     if (user) {
-      console.log(`User has readings:`, user.readinglists);
-
       const response = {
         name: user.name,
         username: user.username,
@@ -45,13 +50,12 @@ router.get("/:id", async (req, res) => {
           readingLists: [
             {
               read: reading.read,
-              id: reading.id, // ID of the join table row
+              id: reading.id,
             },
           ],
         })),
       };
       res.json(response);
-      // res.json(user);
     } else {
       res.status(404).end();
     }
