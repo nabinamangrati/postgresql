@@ -35,12 +35,28 @@ User.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    disabled: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   },
   {
     sequelize,
     underscored: true,
     timestamps: false,
     modelName: "user",
+    defaultScope: {
+      where: {
+        disabled: false,
+      },
+    },
+    scopes: {
+      disabled: {
+        where: {
+          disabled: true,
+        },
+      },
+    },
   }
 );
 
