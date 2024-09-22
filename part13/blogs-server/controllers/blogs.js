@@ -58,7 +58,7 @@ app.post("/", tokenExtractor, validateYear, async (req, res, next) => {
   }
 });
 
-app.get("/:id", blogFinder, async (req, res, next) => {
+app.get("/:id", tokenExtractor, blogFinder, async (req, res, next) => {
   try {
     // console.log(JSON.stringify(req.blog, null, 2));
     res.status(200).json(req.blog);

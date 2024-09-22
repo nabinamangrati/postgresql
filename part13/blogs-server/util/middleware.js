@@ -1,5 +1,8 @@
 const jwt = require("jsonwebtoken");
 const { SECRET } = require("../util/config");
+const User = require("../models/user");
+const Session = require("../models/sesson");
+const { Op } = require("sequelize");
 
 const validateYear = (req, res, next) => {
   const { year } = req.body;
@@ -37,11 +40,31 @@ const errorHandler = (err, req, res, next) => {
   res.status(500).json({ error: "Internal Server Error" });
 };
 
-const tokenExtractor = (req, res, next) => {
+const tokenExtractor = async (req, res, next) => {
   const authorization = req.get("authorization");
   if (authorization && authorization.toLowerCase().startsWith("bearer ")) {
+    const token = authorization.substring(7);
+
     try {
-      req.decodedToken = jwt.verify(authorization.substring(7), SECRET);
+      const decodedToken = jwt.verify(token, SECRET);
+      req.decodedToken = decodedToken;
+
+      const session = await Session.findOne({
+        where: {
+          user_id: decodedToken.id,
+          token: token,
+          expires_at: { [Op.gt]: new Date() },
+        },
+      });
+
+      if (!session) {
+        return res.status(401).json({ error: "Session is invalid or expired" });
+      }
+
+      const user = await User.findByPk(decodedToken.id);
+      if (user && user.disabled) {
+        return res.status(401).json({ error: "User is disabled" });
+      }
     } catch {
       return res.status(401).json({ error: "token invalid" });
     }

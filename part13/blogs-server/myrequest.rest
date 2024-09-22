@@ -2,20 +2,23 @@
 GET http://localhost:3003/api/blogs/
 
 ###
-GET http://localhost:3003/api/blogs/10
+GET http://localhost:3003/api/blogs/6
+content-type: application/json
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hYmluYTNAZ21haWwuY29tIiwiaWQiOjMsImlhdCI6MTcyNzAwNTg3Nn0.UoKLfC5CaVDk1Zk0R5qdbrDy0BWOAtvTf9uFJ1UG7mw
+
 
 
 ###
 POST http://localhost:3003/api/blogs/
 content-type: application/json
-authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hYmluYTJAZ21haWwuY29tIiwiaWQiOjIsImlhdCI6MTcyNjg0MzkxOH0.xF2Ce6HsRomEf32IhFFZ9VK9gA4gOxDnUuZ5u5840eg
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hYmluYTNAZ21haWwuY29tIiwiaWQiOjMsImlhdCI6MTcyNzAwNTg3Nn0.UoKLfC5CaVDk1Zk0R5qdbrDy0BWOAtvTf9uFJ1UG7mw
 
 {
-    "author": "author 8",
+    "author": "author 9",
     "url": "url.com",
     "title": "title example ",
-    "likes": 1866,
-    "year":2015
+    "likes": 163,
+    "year":2012
     
 }
 
@@ -60,7 +63,7 @@ POST http://localhost:3003/api/login/
 content-type: application/json
 
 {
-    "username": "nabina3@gmail.com",
+    "username": "nabina2@gmail.com",
     "password": "secret"
    
 }
