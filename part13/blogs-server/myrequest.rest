@@ -11,21 +11,21 @@ authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hY
 ###
 POST http://localhost:3003/api/blogs/
 content-type: application/json
-authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hYmluYTNAZ21haWwuY29tIiwiaWQiOjMsImlhdCI6MTcyNzAwNTg3Nn0.UoKLfC5CaVDk1Zk0R5qdbrDy0BWOAtvTf9uFJ1UG7mw
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hYmluYTJAZ21haWwuY29tIiwiaWQiOjIsImlhdCI6MTcyNzAwNzI2MH0.WMn5TEn7DIX5cngsGiGKtaBnWmgRGEWONSbHQyJ4vAk
 
 {
-    "author": "author 9",
+    "author": "author 10",
     "url": "url.com",
     "title": "title example ",
-    "likes": 163,
+    "likes": 234,
     "year":2012
     
 }
 
 ###
-DELETE  http://localhost:3003/api/blogs/12
+DELETE  http://localhost:3003/api/blogs/9
 content-type: application/json
-authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld1VzZXJuYW1lQGdtYWlsLmNvbSIsImlkIjozLCJpYXQiOjE3MjU3OTc1ODJ9.92_p6KlG05kOKsy97cBTspwNx5u501eEu_nNUjNBOvY
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hYmluYTNAZ21haWwuY29tIiwiaWQiOjMsImlhdCI6MTcyNzAwNTg3Nn0.UoKLfC5CaVDk1Zk0R5qdbrDy0BWOAtvTf9uFJ1UG7mk
 
 
 ###
@@ -63,10 +63,17 @@ POST http://localhost:3003/api/login/
 content-type: application/json
 
 {
-    "username": "nabina2@gmail.com",
+    "username": "nabina3@gmail.com",
     "password": "secret"
    
 }
+###
+DELETE  http://localhost:3003/api/logout
+content-type: application/json
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hYmluYTNAZ21haWwuY29tIiwiaWQiOjMsImlhdCI6MTcyNzAxMDM3OH0.tlrXKF0-shE60xsAS-PbKyo7ZQtaXtnDeXcPI1Ut-NI
+
+
+
 
 ###
 POST http://localhost:3003/api/reading-lists
